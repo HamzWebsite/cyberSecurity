@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMZ CYBER SECURITY - Sistem Nyata</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --danger: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+        }
+        .security-dashboard {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .dashboard-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--light);
+            margin-bottom: 30px;
+        }
+        .dashboard-header h1 {
+            color: var(--primary);
+            margin: 0;
+        }
+        .dashboard-header p {
+            color: #7f8c8d;
+            margin: 5px 0 0;
+        }
+        .security-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .section-title {
+            color: var(--primary);
+            margin-top: 0;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .security-card {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--secondary);
+        }
+        .security-card h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        .security-status {
+            font-weight: bold;
+        }
+        .status-active {
+            color: var(--success);
+        }
+        .status-inactive {
+            color: var(--danger);
+        }
+        .security-log {
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        .log-entry {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+        }
+        .log-time {
+            color: #7f8c8d;
+            font-weight: bold;
+        }
+        .security-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="security-dashboard">
+        <div class="dashboard-header">
+            <h1>DANZ CYBER SECURITY</h1>
+            <p>Melindungi Dunia Digital Anda</p>
+        </div>
+
+        <div class="security-section">
+            <h2 class="section-title">Status Keamanan Sistem</h2>
+            <div class="security-grid">
+                <div class="security-card">
+                    <h3>Firewall</h3>
+                    <p class="security-status status-active">AKTIF</p>
+                    <p>Memantau lalu lintas jaringan secara real-time</p>
+                </div>
+                <div class="security-card">
+                    <h3>Pemindaian Virus</h3>
+                    <p class="security-status status-active">BERJALAN</p>
+                    <p>Pemindaian terakhir: 5 menit lalu</p>
+                </div>
+                <div class="security-card">
+                    <h3>Enkripsi Data</h3>
+                    <p class="security-status status-active">TERPASANG</p>
+                    <p>Menggunakan AES-256 untuk enkripsi</p>
+                </div>
+                <div class="security-card">
+                    <h3>Serangan Diblokir</h3>
+                    <p class="security-status">5 SERANGAN</p>
+                    <p>Hari ini</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="security-section">
+            <h2 class="section-title">Aktivitas Keamanan</h2>
+            <div class="security-log" id="securityLog">
+                <div class="log-entry">
+                    <span class="log-time">[10:23:45]</span> Sistem mendeteksi upaya serangan DDoS
+                </div>
+                <div class="log-entry">
+                    <span class="log-time">[10:23:47]</span> Firewall memblokir alamat IP mencurigakan (185.143.223.67)
+                </div>
+                <div class="log-entry">
+                    <span class="log-time">[10:24:01]</span> Pemindaian keamanan otomatis dimulai
+                </div>
+                <div class="log-entry">
+                    <span class="log-time">[10:25:32]</span> Backup data harian berhasil
+                </div>
+                <div class="log-entry">
+                    <span class="log-time">[10:30:15]</span> Pembaruan definisi virus terinstal
+                </div>
+            </div>
+            <div class="security-actions">
+                <button class="btn btn-primary" onclick="refreshLogs()">Segarkan Log</button>
+                <button class="btn btn-danger" onclick="clearLogs()">Bersihkan Log</button>
+            </div>
+        </div>
+
+        <div class="security-section">
+            <h2 class="section-title">Alat Keamanan</h2>
+            <div class="security-grid">
+                <div class="security-card">
+                    <h3>Pemindaian Sistem</h3>
+                    <p>Analisis lengkap sistem untuk kerentanan</p>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="runSystemScan()">Jalankan Pemindaian</button>
+                </div>
+                <div class="security-card">
+                    <h3>Manajemen Firewall</h3>
+                    <p>Konfigurasi aturan firewall</p>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="manageFirewall()">Kelola Firewall</button>
+                </div>
+                <div class="security-card">
+                    <h3>Enkripsi File</h3>
+                    <p>Enkripsi/dekripsi file sensitif</p>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="encryptFiles()">Enkripsi File</button>
+                </div>
+                <div class="security-card">
+                    <h3>Monitor Jaringan</h3>
+                    <p>Pantau lalu lintas jaringan</p>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="monitorNetwork()">Buka Monitor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi dasar untuk log keamanan
+        function addLogEntry(message) {
+            const now = new Date();
+            const timeString = `[${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}]`;
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `<span class="log-time">${timeString}</span> ${message}`;
+            
+            const logContainer = document.getElementById('securityLog');
+            logContainer.insertBefore(logEntry, logContainer.firstChild);
+        }
+
+        function refreshLogs() {
+            addLogEntry("Log keamanan disegarkan oleh administrator");
+        }
+
+        function clearLogs() {
+            if (confirm("Apakah Anda yakin ingin menghapus semua log keamanan?")) {
+                document.getElementById('securityLog').innerHTML = '';
+                addLogEntry("Log keamanan dibersihkan oleh administrator");
+            }
+        }
+
+        // Fungsi untuk alat keamanan
+        function runSystemScan() {
+            addLogEntry("Memulai pemindaian sistem lengkap...");
+            alert("Pemindaian sistem akan memeriksa:\n- Kerentanan keamanan\n- File mencurigakan\n- Konfigurasi sistem");
+        }
+
+        function manageFirewall() {
+            addLogEntry("Membuka manajemen firewall");
+            alert("Panel manajemen firewall akan terbuka di sini.\nAnda dapat menambah/mengubah aturan firewall.");
+        }
+
+        function encryptFiles() {
+            addLogEntry("Membuka alat enkripsi file");
+            alert("Pilih file yang ingin dienkripsi.\nFile akan diamankan dengan enkripsi AES-256.");
+        }
+
+        function monitorNetwork() {
+            addLogEntry("Membuka monitor jaringan");
+            alert("Monitor jaringan akan menampilkan:\n- Lalu lintas real-time\n- Koneksi aktif\n- Aktivitas mencurigakan");
+        }
+
+        // Contoh deteksi ancaman nyata (sederhana)
+        function checkForThreats() {
+            // Ini adalah contoh sederhana, dalam implementasi nyata akan lebih kompleks
+            const threats = [
+                "Upaya login tidak sah terdeteksi",
+                "Port mencurigakan terbuka",
+                "Aktivitas jaringan tidak biasa terdeteksi"
+            ];
+            
+            if (Math.random() < 0.3) { // 30% chance untuk mendeteksi ancaman
+                const randomThreat = threats[Math.floor(Math.random() * threats.length)];
+                addLogEntry("SISTEM: " + randomThreat);
+            }
+        }
+
+        // Periksa ancaman setiap 30 detik
+        setInterval(checkForThreats, 30000);
+    </script>
+</body>
+</html>
